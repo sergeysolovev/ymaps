@@ -1,7 +1,8 @@
 # ymaps
 Yandex Maps on-demand promise-based widget loader.
 
-Appends to document body a script tag, referencing [Yandex Maps API](https://tech.yandex.com/maps/jsapi/). Provides promise, that resolves when the script is loaded and the [API is ready](https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/#api-ready).
+* Appends a script tag, referencing [Yandex Maps API](https://tech.yandex.com/maps/jsapi/), to document body, when is told to do so.
+* Provides a promise, that resolves, when the script is loaded and the [API is ready](https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/#api-ready).
 
 ## Installation
 
@@ -15,6 +16,8 @@ yarn add ymaps
 
 ## Usage
 
+If `ymaps.load` was called without args, default `script src` value would be `"//api-maps.yandex.ru/2.1/?lang=en_RU"`
+
 ```javascript
 import ymaps from 'ymaps';
 
@@ -23,8 +26,16 @@ ymaps.load().then(maps => {
     center: [-8.369326, 115.166023]
   });
 })
-.catch(() => console.log('Failed to load Yandex Maps'));
+.catch(error => console.log('Failed to load Yandex Maps', error));
 ```
+
+To use another language simply pass a valid `src` to `ymaps.load`
+
+```javascript
+ymaps.load('https://api-maps.yandex.ru/2.1/?lang=en_US').then(maps => { /* ... */ })
+```
+
+The information about other options is available in the [API docs](https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/). Please check out [known issues](#known-issues) to see not supported options.
 
 ## Running the tests
 
@@ -35,6 +46,10 @@ npm test
 # with yarn
 yarn test
 ```
+
+## Known issues
+
+* `load` parameter, except `load=package.full` is causing an error `TypeError: s is not a constructor`. To reproduce, try to pass src `"//api-maps.yandex.ru/2.1/?lang=en_US&load=Map"`. PR is welcome!
 
 ## Contributing
 
