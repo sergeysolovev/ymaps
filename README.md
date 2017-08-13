@@ -1,4 +1,4 @@
-# react-unplug
+# ymaps
 Yandex Maps on-demand promise-based widget loader.
 
 Appends to document body a script tag, referencing [Yandex Maps API](https://tech.yandex.com/maps/jsapi/). Provides promise, that resolves when the script is loaded and the [API is ready](https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/#api-ready).
