@@ -51,13 +51,5 @@ describe('ymaps', () => {
     it(`rejects if the script src is invalid`, () => {
       return expect(ymaps.load('wrong_url')).rejects.toBeDefined();
     });
-
-    it(`uses src = "//api-maps.yandex.ru/2.1/?lang=en_RU"
-        if called without arguments`, () => {
-      return ymaps.load().catch(() => {
-        const script = document.querySelector('script');
-        expect(script.src).toBe('//api-maps.yandex.ru/2.1/?lang=en_RU');
-      });
-    });
   })
 })
