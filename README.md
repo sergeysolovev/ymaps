@@ -18,14 +18,12 @@ yarn add ymaps
 ```javascript
 import ymaps from 'ymaps';
 
-ymaps.load()
-  .then(maps => {
-    const map = new maps.Map('your-map-container', {
-      center: [-8.369326, 115.166023]
-    });
-  })
-  .catch(() => console.log('Failed to load Yandex Maps'));
-}
+ymaps.load().then(maps => {
+  const map = new maps.Map('your-map-container', {
+    center: [-8.369326, 115.166023]
+  });
+})
+.catch(() => console.log('Failed to load Yandex Maps'));
 ```
 
 ## Running the tests
