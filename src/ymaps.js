@@ -1,24 +1,29 @@
 export default {
   load(src) {
+    src = src || '//api-maps.yandex.ru/2.1/?lang=en_RU';
+
+    const getNsParamValue = () => {
+      var results = RegExp('[\\?&]ns=([^&#]*)').exec(src);
+      return results === null ? '' :
+        decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+
     this.promise = this.promise || new Promise((resolve, reject) => {
       let elem = document.createElement('script');
       elem.type = 'text/javascript';
-      elem.src = src || '//api-maps.yandex.ru/2.1/?lang=en_RU';
+      elem.src = src;
       elem.onload = resolve;
       elem.onerror = e => reject(e)
       document.body.appendChild(elem);
     })
-    .then(() =>
-      new Promise(resolve => {
-        if (!global.ymaps) {
-          throw new Error('Failed to find ymaps in the global scope');
-        }
-        if (!global.ymaps.ready) {
-          throw new Error('ymaps.ready is missing');
-        }
-        return ymaps.ready(resolve);
-      })
-    )
+    .then(() => {
+      const ns = getNsParamValue();
+      if (ns && ns !== 'ymaps') {
+        (1,eval)(`var ymaps = ${ns};`);
+      }
+      return new Promise(resolve => ymaps.ready(resolve));
+    });
+
     return this.promise;
   }
 };
