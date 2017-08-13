@@ -49,7 +49,7 @@ yarn test
 
 ## Known issues
 
-* `load` parameter, except `load=package.full` is causing an error `TypeError: s is not a constructor`. To reproduce, try to pass src `"//api-maps.yandex.ru/2.1/?lang=en_US&load=Map"`. PR is welcome!
+* `load` parameter, except when it's set to `package.full` is causing an error "TypeError: s is not a constructor". To reproduce, try to pass `"//api-maps.yandex.ru/2.1/?lang=en_US&load=Map"` to `ymaps.load` in the [example above](#usage). PR is welcome!
 
 ## Contributing
 
