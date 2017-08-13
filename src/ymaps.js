@@ -3,7 +3,7 @@ export default {
     this.promise = this.promise || new Promise((resolve, reject) => {
       let elem = document.createElement('script');
       elem.type = 'text/javascript';
-      elem.src = src || 'https://api-maps.yandex.ru/2.1/?lang=en_RU';
+      elem.src = src || '//api-maps.yandex.ru/2.1/?lang=en_RU';
       elem.onload = resolve;
       elem.onerror = e => reject(e)
       document.body.appendChild(elem);
