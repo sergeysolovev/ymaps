@@ -4,26 +4,22 @@
 
 Yandex Maps on-demand promise-based widget loader.
 
-- Appends a script tag, referencing
-  [Yandex Maps API](https://tech.yandex.com/maps/jsapi/), to document body, when
-  is told to do so.
-- Provides a promise, that resolves, when the script is loaded and the
+- Appends [Yandex Maps API](https://tech.yandex.com/maps/jsapi/) script to the
+  document body.
+- Returns a promise which resolves as soon as the script has loaded and the
   [API is ready](https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/#api-ready).
 
-## Installation
+This way the widget doesn’t load until it’s needed to decrease page load time.
+
+## Quickstart
+
+Install from the command line:
 
 ```shell
-# npm
 npm install ymaps
-
-# yarn
-yarn add ymaps
 ```
 
-## Usage
-
-If `ymaps.load` was called without args, default `script src` value would be
-`"//api-maps.yandex.ru/2.1/?lang=en_RU"`
+Use in your code to load the widget:
 
 ```javascript
 import ymaps from 'ymaps';
@@ -54,11 +50,7 @@ Please check out [known issues](#known-issues) to see not supported options.
 ## Running the tests
 
 ```shell
-# with npm
 npm test
-
-# with yarn
-yarn test
 ```
 
 ## Known issues
