@@ -2,37 +2,43 @@
   "name": "ymaps",
   "version": "0.1.1",
   "description": "Yandex Maps on-demand promise-based widget loader",
-  "main": "dist/ymaps.js",
-  "scripts": {
-    "test": "jest --env=jsdom",
-    "clean": "del-cli dist",
-    "prebuild": "npm run clean",
-    "build": "babel src -d dist",
-    "publishOnly": "npm run build"
-  },
   "keywords": [
-    "ymaps",
-    "yandex",
     "maps",
-    "yandex-maps"
+    "yandex",
+    "yandex-maps",
+    "ymaps"
   ],
+  "homepage": "https://github.com/sergeysolovev/ymaps#readme",
+  "bugs": {
+    "url": "https://github.com/sergeysolovev/ymaps/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sergeysolovev/ymaps.git"
   },
-  "bugs": {
-    "url": "https://github.com/sergeysolovev/ymaps/issues"
-  },
-  "homepage": "https://github.com/sergeysolovev/ymaps#readme",
-  "author": "Sergey Solovev <me@sergeysolovev.com>",
   "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-jest": "20.0.3",
-    "babel-preset-es2015": "6.24.1",
-    "del-cli": "1.1.0",
-    "file-url": "2.0.2",
-    "jest": "20.0.4"
+  "author": "Sergey Solovev <me@sergeysolovev.com>",
+  "main": "dist/ymaps.js",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "babel src -d dist",
+    "clean": "del-cli dist",
+    "publishOnly": "npm run build",
+    "test": "jest --env=jsdom"
   },
-  "dependencies": {}
+  "jest": {
+    "testEnvironmentOptions": {
+      "runScripts": "dangerously",
+      "resources": "usable"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.5",
+    "@babel/preset-env": "7.4.5",
+    "babel-jest": "24.8.0",
+    "del-cli": "2.0.0",
+    "file-url": "3.0.0",
+    "jest": "24.8.0"
+  }
 }
