@@ -12,6 +12,8 @@ Yandex Maps on-demand promise-based widget loader.
 
 This way the widget doesn’t load until it’s needed to decrease page load time.
 
+[View on CodeSandbox →](https://codesandbox.io/s/ymaps-v1cb6)
+
 ## Quickstart
 
 Install from the command line:
