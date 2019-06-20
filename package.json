@@ -24,6 +24,8 @@
     "prebuild": "yarn clean",
     "build": "rollup -c",
     "clean": "del-cli dist",
+    "prettier": "prettier --write \"**/*.{js,json,md}\"",
+    "prettier-check": "prettier --check \"**/*.{js,json,md}\"",
     "publishOnly": "yarn build",
     "test": "jest"
   },
@@ -40,6 +42,7 @@
     "del-cli": "2.0.0",
     "file-url": "3.0.0",
     "jest": "24.8.0",
+    "prettier": "1.18.2",
     "rollup": "1.15.6",
     "rollup-plugin-babel": "4.3.2"
   }
