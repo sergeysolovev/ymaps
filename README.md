@@ -1,4 +1,7 @@
 # ymaps
+
+[![CircleCI](https://circleci.com/gh/sergeysolovev/ymaps.svg?style=shield)](https://circleci.com/gh/sergeysolovev/ymaps)
+
 Yandex Maps on-demand promise-based widget loader.
 
 * Appends a script tag, referencing [Yandex Maps API](https://tech.yandex.com/maps/jsapi/), to document body, when is told to do so.
