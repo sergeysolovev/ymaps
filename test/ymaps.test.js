@@ -49,6 +49,7 @@ describe('ymaps', () => {
     });
 
     it(`rejects if the script src is invalid`, () => {
+      console.error = jest.fn();
       return expect(ymaps.load('wrong_url')).rejects.toBeDefined();
     });
   })
