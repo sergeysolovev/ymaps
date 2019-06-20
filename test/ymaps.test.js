@@ -10,9 +10,7 @@ describe('ymaps', () => {
   });
 
   describe('ymaps.load', () => {
-    const src = fileUrl(
-      path.resolve(__dirname, 'ymaps.vendor.mock.js')
-    );
+    const src = fileUrl(path.resolve(__dirname, 'ymaps.vendor.mock.js'));
 
     beforeEach(() => {
       ymaps.promise = null;
@@ -20,11 +18,9 @@ describe('ymaps', () => {
     });
 
     it('returns promise, that resolves to vendor ymaps object', () => {
-      return expect(ymaps.load(src))
-        .resolves
-        .toMatchObject({
-          ready: expect.any(Function)
-        });
+      return expect(ymaps.load(src)).resolves.toMatchObject({
+        ready: expect.any(Function)
+      });
     });
 
     it(`appends script element to body
@@ -38,19 +34,14 @@ describe('ymaps', () => {
     });
 
     it(`doesn't append the script twice`, () => {
-      return Promise
-        .all([
-          ymaps.load(src),
-          ymaps.load(src)
-        ])
-        .then(() => {
-          expect(document.querySelectorAll('script')).toHaveLength(1);
-        });
+      return Promise.all([ymaps.load(src), ymaps.load(src)]).then(() => {
+        expect(document.querySelectorAll('script')).toHaveLength(1);
+      });
     });
 
     it(`rejects if the script src is invalid`, () => {
       console.error = jest.fn();
       return expect(ymaps.load('wrong_url')).rejects.toBeDefined();
     });
-  })
-})
+  });
+});
