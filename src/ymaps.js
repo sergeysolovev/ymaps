@@ -1,23 +1,19 @@
 export default {
-  load(src) {
-    src = src || '//api-maps.yandex.ru/2.1/?lang=en_RU';
-
+  load(src = '//api-maps.yandex.ru/2.1/?lang=en_RU') {
     const getNsParamValue = () => {
-      var results = RegExp('[\\?&]ns=([^&#]*)').exec(src);
+      const results = src.match(/[\\?&]ns=([^&#]*)/);
       return results === null
         ? ''
         : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
-
-    this.promise =
-      this.promise ||
-      new Promise((resolve, reject) => {
-        let elem = document.createElement('script');
-        elem.type = 'text/javascript';
-        elem.src = src;
-        elem.onload = resolve;
-        elem.onerror = e => reject(e);
-        document.body.appendChild(elem);
+    if (!this.promise) {
+      this.promise = new Promise((resolve, reject) => {
+        const scriptElement = document.createElement('script');
+        scriptElement.onload = resolve;
+        scriptElement.onerror = reject;
+        scriptElement.type = 'text/javascript';
+        scriptElement.src = src;
+        document.body.appendChild(scriptElement);
       }).then(() => {
         const ns = getNsParamValue();
         if (ns && ns !== 'ymaps') {
@@ -25,7 +21,7 @@ export default {
         }
         return new Promise(resolve => ymaps.ready(resolve));
       });
-
+    }
     return this.promise;
   }
 };
