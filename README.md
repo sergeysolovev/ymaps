@@ -1,5 +1,6 @@
 # ymaps
 
+[![npm version](https://img.shields.io/npm/v/ymaps.svg?style=flat)](https://npmjs.org/package/ymaps)
 [![CircleCI](https://circleci.com/gh/sergeysolovev/ymaps.svg?style=shield)](https://circleci.com/gh/sergeysolovev/ymaps)
 
 Yandex Maps on-demand promise-based widget loader.
