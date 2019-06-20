@@ -18,6 +18,11 @@
   },
   "license": "MIT",
   "author": "Sergey Solovev <me@sergeysolovev.com>",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/"
+  ],
   "main": "dist/ymaps.cjs.js",
   "module": "dist/ymaps.esm.js",
   "scripts": {
